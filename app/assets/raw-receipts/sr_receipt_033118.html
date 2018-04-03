@@ -1,0 +1,592 @@
+Delivered-To: jross.nyc111@gmail.com
+Received: by 10.100.170.196 with SMTP id i4csp760721pjg;
+        Sat, 31 Mar 2018 08:39:02 -0700 (PDT)
+X-Received: by 10.55.158.137 with SMTP id h131mr4248809qke.330.1522510742858;
+        Sat, 31 Mar 2018 08:39:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1522510742; cv=none;
+        d=google.com; s=arc-20160816;
+        b=BIKKMAoGsVPhk1BASdUv/4gE7oJ/kE/y9VdgjHoLhu8fGVAOiZn9RaHGDgFleK0eaI
+         qa8uJP1AjTTLH2VtnVSnytHqe/I5BP9I0vs3OIvt57wfQlvsO8mfhIYujBTax1fPwTFY
+         lrbsGIUo8KgJnc4jM5dCBWIj7W7mpJvvvtWyNAfiibqPZHJDqZC8awJcj4A+d3vgu4Xc
+         fL4ziKdRRqQAKeeBOr7PsxepbTxWwy657BwUpzQJFYMDnG17gzEBDc9ELEywlEj1V+es
+         O14WpF6gUtQfj6wmRXNtxX6tG9pB2RM37/jSG0cT9OOPDAiw5HAwd0yfkQ11XfJUyRmf
+         6EwA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:references:message-id:subject:date:mime-version
+         :content-transfer-encoding:from:dkim-signature
+         :arc-authentication-results;
+        bh=ZcYkm7ntjjXmXtNFZCkRbyWCxA9wmfJi3Ny45wnK8n4=;
+        b=0EweTJyQEqz3fCuNk3/Z5xyXJKu6JJI7uZ6Rg+DvqNJ++dV3wd/4PC/Ll4xqpKSIYz
+         Ql3kYRiVPglgFA6poZW8iyIBCeir7Q9YSpJPf+IEngvQ3UnLsjMqyMwUYRwRQYzt2mT1
+         RpdNnPv6niep+YYWomZ3dyzuDXclDHAMu1MlLSxcNwUkJGr89vGrYYs/0Feb7IscXefd
+         r3CvbrXXaZNWXRUhaSycNGBg78hunloQIlWhgvPgKal9i3SEr17RK4/hswzebF+eTmjy
+         labZS2bYuPwoTG3AYbi9inDb1+jjyWss/sZAauF72lntRkSSUrQ3FWrocEVKKW3FUjy0
+         zTxw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Qsb8YUrG;
+       spf=pass (google.com: domain of juliapawling@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=juliapawling@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <juliapawling@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id q184sor6380063qke.91.2018.03.31.08.39.02
+        for <jross.nyc111@gmail.com>
+        (Google Transport Security);
+        Sat, 31 Mar 2018 08:39:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of juliapawling@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Qsb8YUrG;
+       spf=pass (google.com: domain of juliapawling@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=juliapawling@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=from:content-transfer-encoding:mime-version:date:subject:message-id
+         :references:to;
+        bh=ZcYkm7ntjjXmXtNFZCkRbyWCxA9wmfJi3Ny45wnK8n4=;
+        b=Qsb8YUrG/4Dqb3Hbggx36Z8Ylgx0B1pxNMgIo56OoHgCwgcGal+3zAz5xmq9esf14f
+         bds09XPz09l9otxCnuhoc39WSRoym+wQMDB2kpeC7RnVkQtFxMM34Pox8KIay0VWPh69
+         yzgBElB+zF+u5PUmjOmxp+Q5qoG9mm2dc2cqUlt+C6abN0zy3pKCgngjQ92x9VFzcpll
+         Vj3NZfNYt4VyaarRHBjpxJ1qelE8d0ZJs/73SARtKZs1AClRNJYuffbUMjSfn2EUoIBP
+         bLULCnCHvFFczLGq7VfJL5nZThLNEEwHRgsZ1f+WA9fA3msncg0p/AG7h3GJ92gceLa4
+         u6oA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:from:content-transfer-encoding:mime-version:date
+         :subject:message-id:references:to;
+        bh=ZcYkm7ntjjXmXtNFZCkRbyWCxA9wmfJi3Ny45wnK8n4=;
+        b=qY3gTkiSY8u9n0GybNdjRnowR9/BpmCkDvW+rptCK8jTxY1Ol+rZq29VJ70gCAVxIW
+         EsfKAg1/tYipsGWwm6BaAz2VlLgmuR+i4rkrsfM/DD3v2ak898xkMLvMUmuZSOwX1phu
+         zkR9g8titHss41GqK1Yvq4p3isTonDSWCUX+gX6qkU7m+nm66hbYRkgKOtuAMvAjHfik
+         qTN+f3hhnk0kU5Sro6gTAlqA2BFYDHmFX6Zhj4vAnFSm1KAFptBWcNaKM+wEm9mfDtsn
+         EcCW7+L+ML+kiZAaLzs/fw/yf9O0+LLt+LUsvyEiZBwAbTv8Oe9lXumtwElsLd+BzBzG
+         Aq+A==
+X-Gm-Message-State: ALQs6tA8LkGz9BkIygNZkgnv+Q7HFGnc1r4xproDSsM9iq4gNGTSPOzL
+	OkjrljdJonU6gZ92Zq0O9TLMN+Wp
+X-Google-Smtp-Source: AIpwx4/09GIKtUqQ3bUSZKWibfev2lXONcPkg8rYEBjbv1ukU67CCHy4hF/hZFynuFqTqMSzsJYvlQ==
+X-Received: by 10.55.16.135 with SMTP id 7mr4183068qkq.85.1522510741999;
+        Sat, 31 Mar 2018 08:39:01 -0700 (PDT)
+Return-Path: <juliapawling@gmail.com>
+Received: from ?IPv6:2601:86:200:79e0:9dfa:3618:44dd:8d53? ([2601:86:200:79e0:9dfa:3618:44dd:8d53])
+        by smtp.gmail.com with ESMTPSA id f30sm8428210qtg.63.2018.03.31.08.39.00
+        for <jross.nyc111@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 31 Mar 2018 08:39:01 -0700 (PDT)
+From: Julia Pawling <juliapawling@gmail.com>
+Content-Type: multipart/alternative;
+	boundary=Apple-Mail-8343957D-CBFE-447D-96DE-E2D2FECEBEA9
+Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0 (1.0)
+Date: Sat, 31 Mar 2018 11:39:00 -0400
+Subject: Fwd: You have a new receipt from ShopRite
+Message-Id: <80DFB785-69FB-49CC-ADD2-3E31ADAC8ED2@gmail.com>
+References: <1220596151.1278781522496772872.JavaMail.app@rapp23.atlis1>
+To: Jamie Ross <jross.nyc111@gmail.com>
+X-Mailer: iPhone Mail (15D100)
+
+
+--Apple-Mail-8343957D-CBFE-447D-96DE-E2D2FECEBEA9
+Content-Type: text/plain;
+	charset=us-ascii
+Content-Transfer-Encoding: quoted-printable
+
+
+
+
+Begin forwarded message:
+
+From: ShopRite - Digital Receipt  <ShopRite@shoprite-email.com>
+Date: March 31, 2018 at 7:46:12 AM EDT
+To: juliapawling@gmail.com
+Subject: You have a new receipt from ShopRite
+Reply-To: noreply@t.shoprite.com
+
+Dear JULIA PAWLING,
+
+You have received this email because you signed up for Digital Receipts on s=
+hoprite.com. If you no longer wish to receive emails, please unsubscribe by u=
+pdating your Price Plus Profile by clicking here, or sign in to shoprite.com=
+ and update your account settings. For assistance with this order, please co=
+ntact ShopRite Customer Care at 1-800-SHOPRITE (800-746-7748) or send us an e=
+mail. Thank you for shopping at ShopRite!
+
+Sincerely,=20
+Your friends at ShopRite
+
+Shop on-line at ShopRite.com or download our new ShopRite app available in t=
+he Apple App store or Google Play.
+
+Please do not reply to this email. This mailbox is not monitored so you will=
+ not receive a response.
+
+ShopRite Digital Receipt
+Transaction Date: 03/30/2018 18:02:00 PM
+=20
+SHOPRITE METRO PLAZA=20
+400 MARIN BLVD=20
+JERSEY CITY, NJ, 07302=20
+(201)418-0300
+=20
+Description	Price	Quantity	Total	=20
+GRP GREEN 19 LB	$2.99/lb	0.93lbs	$2.78	FWT
+SK LEMON 115	$0.60/ea	1.00	$0.60	F
+SK LEMON 115	$0.60/ea	1.00	$0.60	F
+BEAN GREEN BIN 26	$1.80/lb	0.54lbs	$0.97	FWT
+SQUASH GREEN 20LB	$1.49/lb	0.83lbs	$1.24	FWT
+SCALLION 48S*	$0.83/ea	1.00	$0.83	F
+ASPARAGUS STNDRD 1	$2.49/lb	1.00lbs	$2.49	FWT
+LETT ROMAINE CAL*                                                	$1.=
+99/lb	1.04lbs	$2.07	FWT
+PEP JALAPENO 36	$1.99/lb	1.74lbs	$3.46	FWT
+POT WHITE A'S 50LB                                               	$0.=
+99/lb	3.97lbs	$3.93	FWT
+BCH CILANTRO TRIMM	$0.99/ea	1.00	$0.99	F
+BLUEBERRY 6Z*	$2.50/ea	1.00	$2.50	F
+CB XSHRP CHEDR YLW	$2.59/ea	1.00	$2.59	F
+CB NY AGED RESERVE	$2.59/ea	1.00	$2.59	F
+BREAK SOUR CREAM	$2.24/ea	1.00	$2.24	F
+BREAK SOUR CREAM	$2.24/ea	1.00	$2.24	F
+PHILA LT NEUFCHATE	$1.67/ea	1.00	$1.67	F
+FRND IC DBL CC CKI	$2.89/ea	1.00	$2.89	F
+CARROTS 1 LB ISRAE                                               	$0.=
+99/ea	1.00	$0.99	F
+DAN YOG WM STRAWBE	$2.99/ea	1.00	$2.99	F
+SR ORG TURKEY CK S	$1.89/ea	1.00	$1.89	F
+SR G-A X LRG EGGS	$2.89/ea	1.00	$2.89	F
+SR HVD -QUART MILK	$1.39/ea	1.00	$1.39	F
+COOL WHIP 8Z	$1.79/ea	1.00	$1.79	F
+COOL WHIP MX-INS O	$1.79/ea	1.00	$1.79	F
+CHI CHI SFT TACO 1	$1.99/ea	1.00	$1.99	F
+TH CINN RSN SWIRL	$2.99/ea	1.00	$2.99	F
+EVRY PRETZEL CRISP	$1.99/ea	1.00	$1.99	F
+POLLY-O MOZZARELLA	$4.34/ea	1.00	$4.34	F
+G&M DOUBLE PROTEIN	$2.24/ea	1.00	$2.24	F
+ARNOLD EG CRK WHT	$2.24/ea	1.00	$2.24	F
+HELVA MNT JACK JLP	$3.19/ea	1.00	$3.19	F
+DR PEPPER DIET	$0.99/ea	1.00	$0.99	TF
+DR PEPPER DIET	$0.99/ea	1.00	$0.99	TF
+S/B 4/7 TURKEY BRS                                               	$1.=
+99/lb	10.18lbs	$20.26	FWT
+PERDUE TENDERS F	$5.87/lb	1.59lbs	$9.33	FWT
+BB PS CHEDDAR	$4.02/lb	0.51lbs	$2.05	FWT
+GROUND BEEF & PORK	$3.99/lb	1.33lbs	$5.31	FWT
+Reduce GROC	$2.12/ea	1.00	$2.12	F
+Reduce GROC	$2.12/ea	1.00	$2.12	F
+Reduce GROC	$2.13/ea	1.00	$2.13	F
+ONION RED/YELLOW                                                 	$2.=
+99/ea	1.00	$2.99	F
+CHOB GRK HINT BLUE	$1.28/ea	1.00	$1.28	F
+CHOB GRK HINT BLUE	$1.28/ea	1.00	$1.28	F
+CHOB GRK HINT STRW	$1.28/ea	1.00	$1.28	F
+CHOB GRK HINT MANG	$1.28/ea	1.00	$1.28	F
+GROCERY	$0.29/ea	1.00	$0.29	F
+**SC** TURKEY BRST COUPON	- $19.90/lb	10.00	- $19.90	FWT=
+
+**SC** EL Heluva Good Chu	- $1.20/ea	1.00	- $1.20	F
+**SC** PC ShopRite Organi	- $0.40/ea	1.00	- $0.40	F
+**SC** PC COOL WHIP TOPPI	- $1.60/ea	1.00	- $1.60	F
+**SC** PC Cracker Barrel	- $0.60/ea	1.00	- $0.60	F
+**SC** PC Cracker Barrel	- $0.60/ea	1.00	- $0.60	F
+**SC** PC Polly O Mozzare	- $2.35/ea	1.00	- $2.35	F
+**SC** PC Friendly s Ice	- $0.90/ea	1.00	- $0.90	F
+**SC** PC Breakstone s So	- $0.75/ea	1.00	- $0.75	F
+**SC** PC Breakstone s So	- $0.75/ea	1.00	- $0.75	F
+**SC** PC Chobani Greek Y	- $0.28/ea	1.00	- $0.28	F
+**SC** PC Chobani Greek Y	- $0.28/ea	1.00	- $0.28	F
+**SC** PC Chobani Greek Y	- $0.28/ea	1.00	- $0.28	F
+**SC** PC Chobani Greek Y	- $0.28/ea	1.00	- $0.28	F
+**SC** PC Green Asparagus	- $0.50/lb	1.00	- $0.50	FWT=
+
+**MC** PAPER COUPON	- $0.55/ea	1.00	- $0.55=09
+# OF ITEMS:	47	=20
+ 	 	 	=20
+TOTAL COUPON(s):	$31.22	=20
+SUBTOTAL:	$91.87	=20
+TAX:	$0.07	=20
+TOTAL:	$91.94	=20
+REGISTER #	0015	=20
+TRANSACTION #	0119	=20
+PAYMENT METHOD(s):		=20
+VISA	$91.94
+PRICE PLUS CLUB #	47108609283	=20
+Thank you for shopping at SHOPRITE METRO PLAZA=
+
+--Apple-Mail-8343957D-CBFE-447D-96DE-E2D2FECEBEA9
+Content-Type: text/html;
+	charset=utf-8
+Content-Transfer-Encoding: 7bit
+
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"></head><body dir="auto"><div></div><div><br><br><br>Begin forwarded message:<br><br></div><div><b>From:</b> ShopRite - Digital Receipt&nbsp; &lt;<a href="mailto:ShopRite@shoprite-email.com">ShopRite@shoprite-email.com</a>&gt;<br><b>Date:</b> March 31, 2018 at 7:46:12 AM EDT<br><b>To:</b> <a href="mailto:juliapawling@gmail.com">juliapawling@gmail.com</a><br><b>Subject:</b> <b>You have a new receipt from ShopRite</b><br><b>Reply-To:</b> <a href="mailto:noreply@t.shoprite.com">noreply@t.shoprite.com</a><br><br></div><div>
+
+	<title></title>
+
+
+
+
+<title>ShopRite Digital Receipt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+
+<p>Dear JULIA PAWLING,                  </p>
+<p>You have received this email because you signed up for Digital
+Receipts on <a href="http://shoprite.com">shoprite.com</a>.  If you no longer wish to receive
+emails, please unsubscribe by updating your Price Plus Profile by
+clicking
+<a name="plan_shoprite_com_Profile" href="http://links.t.shoprite.com/ctt?m=12882538&amp;r=LTI2ODU0OTgzODkS1&amp;b=0&amp;j=MTM2MjgyMzcxMwS2&amp;mt=1&amp;kt=12&amp;kx=1&amp;k=plan_shoprite_com_Profile&amp;kd=https%3A%2F%2Fplan.shoprite.com%2FProfile">here</a>, or sign in
+to <a href="http://shoprite.com">shoprite.com</a> and update your account settings.
+For assistance with this order, please
+contact ShopRite Customer Care at 1-800-SHOPRITE (800-746-7748)
+or send us an
+<a name="www_shoprite_com_contact-us_co" href="http://links.t.shoprite.com/ctt?m=12882538&amp;r=LTI2ODU0OTgzODkS1&amp;b=0&amp;j=MTM2MjgyMzcxMwS2&amp;mt=1&amp;kt=12&amp;kx=1&amp;k=www_shoprite_com_contact-us_co&amp;kd=http%3A%2F%2Fwww.shoprite.com%2Fcontact-us%2Fcontact-us-form-email">
+email.</a> Thank you for shopping at ShopRite!</p>
+<p>Sincerely, <br>
+Your friends at ShopRite</p>
+<p><i>Shop on-line at</i>
+<a name="www_shoprite_com" href="http://links.t.shoprite.com/ctt?m=12882538&amp;r=LTI2ODU0OTgzODkS1&amp;b=0&amp;j=MTM2MjgyMzcxMwS2&amp;mt=1&amp;kt=12&amp;kx=1&amp;k=www_shoprite_com&amp;kd=http%3A%2F%2Fwww.shoprite.com">ShopRite.com</a> or download our
+new ShopRite app available in the
+<a name="itunes_apple_com_us_app_new-sh" href="http://links.t.shoprite.com/ctt?m=12882538&amp;r=LTI2ODU0OTgzODkS1&amp;b=0&amp;j=MTM2MjgyMzcxMwS2&amp;mt=1&amp;kt=12&amp;kx=1&amp;k=itunes_apple_com_us_app_new-sh&amp;kd=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fnew-shoprite%2Fid1170573424%3Fmt%3D8">
+Apple App store</a> or
+<a name="play_google_com_store_apps_det" href="http://links.t.shoprite.com/ctt?m=12882538&amp;r=LTI2ODU0OTgzODkS1&amp;b=0&amp;j=MTM2MjgyMzcxMwS2&amp;mt=1&amp;kt=12&amp;kx=1&amp;k=play_google_com_store_apps_det&amp;kd=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.wakefern.shoprite">
+Google Play</a>.
+</p>
+<p>Please do not reply to this email. This
+ mailbox is not monitored so you will not receive a response.</p>
+
+<table style="border: 2px solid #fcdb94;color: #555;">
+<tbody><tr style="background-color: #fcdb94; color: black; font-weight: bold;
+      text-align: center; font-size: 10pt; ">
+<td colspan="5">ShopRite Digital Receipt</td>
+</tr><tr>
+<td colspan="5" style="padding: 0px 5px;">
+Transaction Date: 03/30/2018 18:02:00 PM                         </td>
+
+</tr><tr>
+<td colspan="5">&nbsp;</td>
+</tr><tr>
+<td colspan="5" style="padding: 0px 5px;">
+<b>SHOPRITE  METRO PLAZA                                    </b><br>
+400 MARIN BLVD                                                  <br>
+JERSEY CITY, NJ, 07302                                          <br>
+(201)418-0300
+</td></tr>
+<tr>
+<td colspan="5">&nbsp;</td>
+</tr><tr>
+</tr><tr style="background-color: #fcdb94; color: black;
+        text-align: center;">
+<th>Description</th>
+<th>Price</th>
+<th>Quantity</th>
+<th>Total</th>
+<th>&nbsp;</th>
+</tr>
+<tr><td>GRP GREEN 19 LB                                                  </td>
+<td style="text-align: right;">     $2.99/lb</td>
+<td style="text-align: right;">    0.93lbs</td>
+<td style="text-align: right;">      $2.78</td><td>FWT </td></tr>
+<tr><td>SK LEMON 115                                                     </td>
+<td style="text-align: right;">     $0.60/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $0.60</td><td>F   </td></tr>
+<tr><td>SK LEMON 115                                                     </td>
+<td style="text-align: right;">     $0.60/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $0.60</td><td>F   </td></tr>
+<tr><td> BEAN GREEN BIN 26                                               </td>
+<td style="text-align: right;">     $1.80/lb</td>
+<td style="text-align: right;">    0.54lbs</td>
+<td style="text-align: right;">      $0.97</td><td>FWT </td></tr>
+<tr><td>SQUASH GREEN 20LB                                                </td>
+<td style="text-align: right;">     $1.49/lb</td>
+<td style="text-align: right;">    0.83lbs</td>
+<td style="text-align: right;">      $1.24</td><td>FWT </td></tr>
+<tr><td>SCALLION 48S*                                                    </td>
+<td style="text-align: right;">     $0.83/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $0.83</td><td>F   </td></tr>
+<tr><td>ASPARAGUS STNDRD 1                                               </td>
+<td style="text-align: right;">     $2.49/lb</td>
+<td style="text-align: right;">    1.00lbs</td>
+<td style="text-align: right;">      $2.49</td><td>FWT </td></tr>
+<tr><td>LETT ROMAINE CAL*                                                </td>
+<td style="text-align: right;">     $1.99/lb</td>
+<td style="text-align: right;">    1.04lbs</td>
+<td style="text-align: right;">      $2.07</td><td>FWT </td></tr>
+<tr><td>PEP JALAPENO    36                                               </td>
+<td style="text-align: right;">     $1.99/lb</td>
+<td style="text-align: right;">    1.74lbs</td>
+<td style="text-align: right;">      $3.46</td><td>FWT </td></tr>
+<tr><td>POT WHITE A'S 50LB                                               </td>
+<td style="text-align: right;">     $0.99/lb</td>
+<td style="text-align: right;">    3.97lbs</td>
+<td style="text-align: right;">      $3.93</td><td>FWT </td></tr>
+<tr><td>BCH CILANTRO TRIMM                                               </td>
+<td style="text-align: right;">     $0.99/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $0.99</td><td>F   </td></tr>
+<tr><td>BLUEBERRY 6Z*                                                    </td>
+<td style="text-align: right;">     $2.50/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $2.50</td><td>F   </td></tr>
+<tr><td>CB XSHRP CHEDR YLW                                               </td>
+<td style="text-align: right;">     $2.59/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $2.59</td><td>F   </td></tr>
+<tr><td>CB NY AGED RESERVE                                               </td>
+<td style="text-align: right;">     $2.59/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $2.59</td><td>F   </td></tr>
+<tr><td>BREAK SOUR CREAM                                                 </td>
+<td style="text-align: right;">     $2.24/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $2.24</td><td>F   </td></tr>
+<tr><td>BREAK SOUR CREAM                                                 </td>
+<td style="text-align: right;">     $2.24/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $2.24</td><td>F   </td></tr>
+<tr><td>PHILA LT NEUFCHATE                                               </td>
+<td style="text-align: right;">     $1.67/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $1.67</td><td>F   </td></tr>
+<tr><td>FRND IC DBL CC CKI                                               </td>
+<td style="text-align: right;">     $2.89/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $2.89</td><td>F   </td></tr>
+<tr><td>CARROTS 1 LB ISRAE                                               </td>
+<td style="text-align: right;">     $0.99/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $0.99</td><td>F   </td></tr>
+<tr><td>DAN YOG WM STRAWBE                                               </td>
+<td style="text-align: right;">     $2.99/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $2.99</td><td>F   </td></tr>
+<tr><td>SR ORG TURKEY CK S                                               </td>
+<td style="text-align: right;">     $1.89/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $1.89</td><td>F   </td></tr>
+<tr><td>SR G-A X LRG EGGS                                                </td>
+<td style="text-align: right;">     $2.89/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $2.89</td><td>F   </td></tr>
+<tr><td>SR HVD -QUART MILK                                               </td>
+<td style="text-align: right;">     $1.39/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $1.39</td><td>F   </td></tr>
+<tr><td>COOL WHIP 8Z                                                     </td>
+<td style="text-align: right;">     $1.79/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $1.79</td><td>F   </td></tr>
+<tr><td>COOL WHIP MX-INS O                                               </td>
+<td style="text-align: right;">     $1.79/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $1.79</td><td>F   </td></tr>
+<tr><td>CHI CHI SFT TACO 1                                               </td>
+<td style="text-align: right;">     $1.99/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $1.99</td><td>F   </td></tr>
+<tr><td>TH CINN RSN SWIRL                                                </td>
+<td style="text-align: right;">     $2.99/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $2.99</td><td>F   </td></tr>
+<tr><td>EVRY PRETZEL CRISP                                               </td>
+<td style="text-align: right;">     $1.99/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $1.99</td><td>F   </td></tr>
+<tr><td>POLLY-O MOZZARELLA                                               </td>
+<td style="text-align: right;">     $4.34/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $4.34</td><td>F   </td></tr>
+<tr><td>G&amp;M DOUBLE PROTEIN                                               </td>
+<td style="text-align: right;">     $2.24/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $2.24</td><td>F   </td></tr>
+<tr><td>ARNOLD EG CRK WHT                                                </td>
+<td style="text-align: right;">     $2.24/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $2.24</td><td>F   </td></tr>
+<tr><td>HELVA MNT JACK JLP                                               </td>
+<td style="text-align: right;">     $3.19/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $3.19</td><td>F   </td></tr>
+<tr><td>DR PEPPER DIET                                                   </td>
+<td style="text-align: right;">     $0.99/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $0.99</td><td>TF  </td></tr>
+<tr><td>DR PEPPER DIET                                                   </td>
+<td style="text-align: right;">     $0.99/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $0.99</td><td>TF  </td></tr>
+<tr><td>S/B 4/7 TURKEY BRS                                               </td>
+<td style="text-align: right;">     $1.99/lb</td>
+<td style="text-align: right;">   10.18lbs</td>
+<td style="text-align: right;">     $20.26</td><td>FWT </td></tr>
+<tr><td>PERDUE TENDERS   F                                               </td>
+<td style="text-align: right;">     $5.87/lb</td>
+<td style="text-align: right;">    1.59lbs</td>
+<td style="text-align: right;">      $9.33</td><td>FWT </td></tr>
+<tr><td>BB PS CHEDDAR                                                    </td>
+<td style="text-align: right;">     $4.02/lb</td>
+<td style="text-align: right;">    0.51lbs</td>
+<td style="text-align: right;">      $2.05</td><td>FWT </td></tr>
+<tr><td>GROUND BEEF &amp; PORK                                               </td>
+<td style="text-align: right;">     $3.99/lb</td>
+<td style="text-align: right;">    1.33lbs</td>
+<td style="text-align: right;">      $5.31</td><td>FWT </td></tr>
+<tr><td>Reduce GROC                                                      </td>
+<td style="text-align: right;">     $2.12/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $2.12</td><td>F   </td></tr>
+<tr><td>Reduce GROC                                                      </td>
+<td style="text-align: right;">     $2.12/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $2.12</td><td>F   </td></tr>
+<tr><td>Reduce GROC                                                      </td>
+<td style="text-align: right;">     $2.13/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $2.13</td><td>F   </td></tr>
+<tr><td>ONION RED/YELLOW                                                 </td>
+<td style="text-align: right;">     $2.99/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $2.99</td><td>F   </td></tr>
+<tr><td>CHOB GRK HINT BLUE                                               </td>
+<td style="text-align: right;">     $1.28/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $1.28</td><td>F   </td></tr>
+<tr><td>CHOB GRK HINT BLUE                                               </td>
+<td style="text-align: right;">     $1.28/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $1.28</td><td>F   </td></tr>
+<tr><td>CHOB GRK HINT STRW                                               </td>
+<td style="text-align: right;">     $1.28/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $1.28</td><td>F   </td></tr>
+<tr><td>CHOB GRK HINT MANG                                               </td>
+<td style="text-align: right;">     $1.28/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $1.28</td><td>F   </td></tr>
+<tr><td>GROCERY                                                          </td>
+<td style="text-align: right;">     $0.29/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">      $0.29</td><td>F   </td></tr>
+<tr><td>**SC** TURKEY BRST COUPON                                        </td>
+<td style="text-align: right;">  - $19.90/lb</td>
+<td style="text-align: right;">   10.00   </td>
+<td style="text-align: right;">  -  $19.90</td><td>FWT </td></tr>
+<tr><td>**SC** EL Heluva Good Chu                                        </td>
+<td style="text-align: right;">  -  $1.20/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">  -   $1.20</td><td>F   </td></tr>
+<tr><td>**SC** PC ShopRite Organi                                        </td>
+<td style="text-align: right;">  -  $0.40/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">  -   $0.40</td><td>F   </td></tr>
+<tr><td>**SC** PC COOL WHIP TOPPI                                        </td>
+<td style="text-align: right;">  -  $1.60/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">  -   $1.60</td><td>F   </td></tr>
+<tr><td>**SC** PC Cracker Barrel                                         </td>
+<td style="text-align: right;">  -  $0.60/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">  -   $0.60</td><td>F   </td></tr>
+<tr><td>**SC** PC Cracker Barrel                                         </td>
+<td style="text-align: right;">  -  $0.60/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">  -   $0.60</td><td>F   </td></tr>
+<tr><td>**SC** PC Polly O Mozzare                                        </td>
+<td style="text-align: right;">  -  $2.35/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">  -   $2.35</td><td>F   </td></tr>
+<tr><td>**SC** PC Friendly s Ice                                         </td>
+<td style="text-align: right;">  -  $0.90/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">  -   $0.90</td><td>F   </td></tr>
+<tr><td>**SC** PC Breakstone s So                                        </td>
+<td style="text-align: right;">  -  $0.75/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">  -   $0.75</td><td>F   </td></tr>
+<tr><td>**SC** PC Breakstone s So                                        </td>
+<td style="text-align: right;">  -  $0.75/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">  -   $0.75</td><td>F   </td></tr>
+<tr><td>**SC** PC Chobani Greek Y                                        </td>
+<td style="text-align: right;">  -  $0.28/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">  -   $0.28</td><td>F   </td></tr>
+<tr><td>**SC** PC Chobani Greek Y                                        </td>
+<td style="text-align: right;">  -  $0.28/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">  -   $0.28</td><td>F   </td></tr>
+<tr><td>**SC** PC Chobani Greek Y                                        </td>
+<td style="text-align: right;">  -  $0.28/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">  -   $0.28</td><td>F   </td></tr>
+<tr><td>**SC** PC Chobani Greek Y                                        </td>
+<td style="text-align: right;">  -  $0.28/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">  -   $0.28</td><td>F   </td></tr>
+<tr><td>**SC** PC Green Asparagus                                        </td>
+<td style="text-align: right;">  -  $0.50/lb</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">  -   $0.50</td><td>FWT </td></tr>
+<tr><td>**MC** PAPER COUPON                                              </td>
+<td style="text-align: right;">  -  $0.55/ea</td>
+<td style="text-align: right;">    1.00   </td>
+<td style="text-align: right;">  -   $0.55</td><td>    </td></tr>
+<tr>
+<td colspan="3" style="padding: 0px 5px;"># OF ITEMS:</td>
+<td style="text-align: right;">   47</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+
+<td class="border-ln">&nbsp;</td>
+<td class="border-ln">&nbsp;</td><td class="border-ln">&nbsp;</td>
+<td class="border-ln">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="3" style="padding: 0px 5px;">TOTAL COUPON(s):</td>
+<td style="text-align: right;">   $31.22 </td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td colspan="3" style="padding: 0px 5px;">SUBTOTAL:</td>
+<td style="text-align: right;">   $91.87  </td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td colspan="3" style="padding: 0px 5px;">TAX: </td>
+<td style="text-align: right;">    $0.07</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td colspan="3" style="padding: 0px 5px;">TOTAL:</td>
+<td style="text-align: right;">   $91.94  </td>
+<td>&nbsp;</td>
+</tr>
+<tr><td colspan="3" style="padding: 0px 5px;">REGISTER #</td>
+<td style="text-align: right;">0015</td>
+<td>&nbsp;</td></tr>
+<tr><td colspan="3" style="padding: 0px 5px;">TRANSACTION #</td>
+<td style="text-align: right;">0119</td>
+<td>&nbsp;</td></tr>
+<tr><td colspan="3" style="padding: 0px 5px;">PAYMENT METHOD(s):</td>
+<td style="text-align: right;"></td>
+<td>&nbsp;</td></tr>
+<tr><td colspan="3" style="padding: 0px 25px;text-align: left;">
+VISA                      </td><td style="text-align: right;">  $91.94</td></tr>
+
+<tr><td colspan="3" style="padding: 0px 5px;">PRICE PLUS CLUB #</td>
+<td style="text-align: right;">47108609283 </td>
+<td>&nbsp;</td></tr>
+</tbody></table>
+
+<p>
+Thank you for shopping at <b>SHOPRITE  METRO PLAZA               </b>
+</p>
+
+
+<img src="http://links.t.shoprite.com/open/log/12882538/LTI2ODU0OTgzODkS1/0/MTM2MjgyMzcxMwS2/1/0" style="display: none">
+
+
+
+</div></body></html>
+--Apple-Mail-8343957D-CBFE-447D-96DE-E2D2FECEBEA9--
